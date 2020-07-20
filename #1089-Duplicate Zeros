@@ -1,0 +1,38 @@
+class Solution {
+public void duplicateZeros(int[] arr) {
+int end=arr.length-1,c=0,pos=-1,last=0;
+for(int i=0;i<end;i++)// to calculate number of non ignorable zeros
+{
+if(arr[i]==0)
+{
+if(pos==-1)//pos is the position of first zero
+pos=i;
+c=c+1;
+end-=1;
+}
+/* if end position is zero then to count it only once*/
+if(arr[end]==0 && i+1==end)
+last=1;
+}
+/*to shift all the character from pos to end to end of arr and replacing single zeros with duplicate zeros*/
+for(int i=arr.length-1;i>=pos+1;i--)
+
+     {
+         arr[i]=arr[end--];
+             if(arr[i]==0&&last==1)
+             {
+                 last=2;
+                 continue;
+             }
+         if(arr[i]==0&&last!=1)
+         {
+             i=i-1;
+             arr[i]=0;
+         continue;
+         }
+         
+         }
+    if(pos>0)
+    arr[pos+1]=0;
+}
+}

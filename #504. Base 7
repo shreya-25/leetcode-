@@ -1,0 +1,16 @@
+class Solution {
+    public String convertToBase7(int num) {
+        String s="";
+        int d=Math.abs(num);
+        while(d>0)
+        {
+            s=d%7+s;
+            d=d/7;
+        }
+        if(num<0)
+            s="-"+s;
+        if(num==0)
+            return "0";
+        return s;
+    }
+}
